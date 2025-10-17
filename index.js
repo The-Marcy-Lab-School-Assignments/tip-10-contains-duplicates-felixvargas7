@@ -12,7 +12,39 @@
  */
 
 const containsDuplicate = (nums) => {
-  //write your code here
+  // My first through is using a for loop, in order to
+  // go through the array, where later I would have to use a
+  // frequency object to be able to detect if a given value appears twice
+  // I also know I may need two for loops, but I'm not exactly sure given 
+  // that I'm riding off of yesterdays exercise, and that prompt may be asking
+  // for something different  
+
+
+  // I create frequency object to store the nums
+  const frequency = {};
+
+  // The for loop is there iterating through each value
+  for (let i = 0; i < nums.length; i++) {
+    const numsCount = nums[i];
+    // The if else statement is to check if the number is present in the frequency object 
+    if (frequency[numsCount] === undefined) {
+      frequency[numsCount] = 1;
+    } else {
+      frequency[numsCount] += 1;
+    }
+  } // So noew we have the count of each number
+  // Then the second for loop would come into play
+  for (let i = 0; i < nums.length; i++) {
+    const numsCount = nums[i];
+    // Next if else comes into play now, to see if the value repeats, and 
+    // returning true if they do, but false if elements don't repeat
+    if (frequency[numsCount] === 2) {
+      return true
+    } else {
+      return false
+    }
+  } // I didn't have time to figure out other cases like empty array, more than two repeats, etc.
+
 };
 
 // Export the function for testing
